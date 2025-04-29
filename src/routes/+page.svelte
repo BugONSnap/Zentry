@@ -1,13 +1,24 @@
 <script>
   import Background from '../lib/Background.svelte';
+  import { goto } from '$app/navigation';
   let isLogin = true;
   let email = '';
   let password = '';
   let confirmPassword = '';
 
   function handleSubmit() {
-    // Form submission logic will be added later
-    console.log('Form submitted');
+    // TODO: Add actual authentication logic here
+    // This will include:
+    // 1. API call to verify credentials
+    // 2. Store authentication token
+    // 3. Handle errors
+    // 4. Validate password match for registration
+    
+    // For now, just log and redirect
+    console.log('Form submitted with:', { email, password, isLogin });
+    
+    // Navigate to dashboard
+    goto('/dashboard');
   }
 </script>
 

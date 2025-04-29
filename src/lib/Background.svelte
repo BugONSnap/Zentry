@@ -5,6 +5,7 @@
   let w = typeof window !== 'undefined' ? window.innerWidth : 0;
   let h = typeof window !== 'undefined' ? window.innerHeight : 0;
   let animated = false;
+  let isPanelVisible = false;
 
   // Star shadow generation
   function multipleBoxShadow(n: number): string {
@@ -15,9 +16,13 @@
     return value;
   }
 
-  const shadowsSmall = multipleBoxShadow(700);
-  const shadowsMedium = multipleBoxShadow(200);
-  const shadowsBig = multipleBoxShadow(100);
+  const shadowsSmall = multipleBoxShadow(1200);
+  const shadowsMedium = multipleBoxShadow(400);
+  const shadowsBig = multipleBoxShadow(200);
+
+  function togglePanel() {
+    isPanelVisible = !isPanelVisible;
+  }
 
   function checkStatus(event: Event) {
     const target = event.target as HTMLInputElement;
@@ -86,7 +91,34 @@
     pointer-events: none;
   }
 
-  /* Toggle styles */
+  /* Toggle button styles */
+  .toggle-button {
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 11;
+    transition: transform 0.3s ease;
+  }
+
+  .toggle-button:hover {
+    transform: scale(1.1);
+  }
+
+  .toggle-button svg {
+    width: 24px;
+    height: 24px;
+    fill: #81a6e0;
+  }
+
+  /* Toggle panel styles */
   #toggle-wrapper {
     width: 230px;
     height: 90px;
@@ -103,6 +135,12 @@
     letter-spacing: 2px;
     color: #81a6e0;
     z-index: 10;
+    transform: translateX(calc(100% + 20px));
+    transition: transform 0.3s ease;
+  }
+
+  #toggle-wrapper.visible {
+    transform: translateX(0);
   }
 
   #toggle-wrapper p {
@@ -255,7 +293,13 @@
   <div id="stars3"></div>
 </div>
 
-<div id="toggle-wrapper">
+<button class="toggle-button" on:click={togglePanel}>
+  <svg viewBox="0 0 24 24">
+    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5-9h10v2H7z"/>
+  </svg>
+</button>
+
+<div id="toggle-wrapper" class={isPanelVisible ? 'visible' : ''}>
   <div>
     <p>animations</p>
     <div class="toggle-container">
