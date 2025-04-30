@@ -24,7 +24,9 @@
                 </nav>
                 <!-- User Avatar - Desktop -->
                 <div class="ml-4">
-                    <img src="https://via.placeholder.com/40" alt="User Avatar" class="w-10 h-10 rounded-full border-2 border-white" />
+                    <a href="/profile" class="block hover:opacity-80 transition-opacity">
+                        <img src="/dp.jpg" alt="User Avatar" class="w-10 h-10 rounded-full border-2 border-white" />
+                    </a>
                 </div>
             </div>
 
@@ -63,8 +65,10 @@
                 <a href="/leaderboard" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Leaderboard</a>
                 <a href="/" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Logout</a>
                 <div class="flex items-center px-3 py-2">
-                    <img src="https://via.placeholder.com/40" alt="User Avatar" class="w-10 h-10 rounded-full border-2 border-white" />
-                    <span class="ml-3 text-base font-medium text-gray-700">User</span>
+                    <a href="/profile" class="flex items-center hover:opacity-80 transition-opacity">
+                        <img src="https://via.placeholder.com/40" alt="User Avatar" class="w-10 h-10 rounded-full border-2 border-white" />
+                        <span class="ml-3 text-base font-medium text-gray-700">User</span>
+                    </a>
                 </div>
             </div>
         </div>
